@@ -43,7 +43,7 @@
     "react-dom": "^16.8.6",
     "react-stripe-checkout": "^2.6.3",
     "react-transition-group": "^4.1.1",
-    "styled-components": "^4.3.2",
+    "styled-components": "^3.4.9",
     "waait": "^1.0.5"
   },
   "devDependencies": {
@@ -70,18 +70,18 @@
   "//": "This is our babel config, I prefer this over .babelrc file",
   "babel": {
     "env": {
-      "development" {
+      "development": {
         "presets": [
           "next/babel"
         ],
         "plugins": [
           [
-          "styled-components",
-          {
-            "ssr": true,
-            "displayName": true
-          }
-        ]
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
         ]
       },
       "production": {
