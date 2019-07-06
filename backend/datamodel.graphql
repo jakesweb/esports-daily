@@ -1,0 +1,54 @@
+enum Platforms {
+  PC
+  XBOX
+  PLAYSTATION
+  SWITCH
+}
+
+enum Permissions {
+  ADMIN
+  USER
+  USERADMIN
+  ARTICLEADMIN
+  MODERATOR
+}
+
+type Tags {
+  id: ID! @id
+  name: String!
+}
+
+type Esports {
+  id: ID! @id
+  name: String!
+  genre: String!
+  platform: [Platforms] @scalarList(strategy: RELATION)
+}
+
+type Articles {
+  id: ID! @id
+  title: String!
+  body: String!
+  tags: [Tags] @scalarList(strategy: RELATION)
+  comments: [Comments] @scalarList(strategy: RELATION)
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type Comments {
+  id: ID! @id
+  body: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type User {
+  id: ID! @id
+  name: String!
+  email: String!
+  password: String!
+  aticles: [Articles] @scalarList(strategy: RELATION)
+  active: Boolean @default(value: "true")
+  permissions: [Permissions] @scalarList(strategy: RELATION) @default(value: "USER")
+  comments: [Comments] @scalarList(strategy: RELATION)
+}
