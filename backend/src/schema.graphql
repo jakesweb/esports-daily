@@ -1,7 +1,15 @@
+# import * from './generated/prisma.graphql'
+
 type Mutation {
-  hi: String
+  createPost(title: String, body: String): Post!
 }
 
 type Query {
-  hi: String
+  posts(
+    where: PostWhereInput
+    orderBy: PostOrderByInput
+    skip: Int
+    first: Int
+  ): [Post]!
+  post(where: PostWhereUniqueInput!): Post
 }
