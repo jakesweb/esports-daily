@@ -125,7 +125,7 @@ var _jsxFileName = "/home/jcolborn/Documents/code/esports-daily/frontend/compone
 var Heading = styled_components__WEBPACK_IMPORTED_MODULE_7___default.a.div.withConfig({
   displayName: "Header__Heading",
   componentId: "sc-10r3ixn-0"
-})(["display:grid;grid-template-columns:1fr;"]);
+})([".container-div{display:flex;flex-wrap:wrap;justify-content:space-between;background-color:yellow;}.logo-div{margin-left:5%;}h1{margin-bottom:0;}p{margin-top:0;}nav{display:grid;grid-template-columns:repeat(3,1fr);justify-content:space-between;margin-top:5%;margin-right:5%;}nav a{text-align:center;margin:10px;font-size:1.2em;}nav a:hover{color:red;}"]);
 
 var Header =
 /*#__PURE__*/
@@ -144,73 +144,88 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(Heading, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 13
+          lineNumber: 41
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "container-div",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 14
+          lineNumber: 42
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "logo-div",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 43
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 15
+          lineNumber: 44
         },
         __self: this
-      }, "Esports Daily"), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("a", {
+        href: "/",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 45
+        },
+        __self: this
+      }, "Esports Daily")), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 47
         },
         __self: this
       }, "Your daily source for esports news")), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("nav", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 49
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_6___default.a, {
         href: "/about",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 50
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("a", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 51
         },
         __self: this
       }, "About")), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_6___default.a, {
         href: "/articles",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 53
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("a", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 54
         },
         __self: this
       }, "Articles")), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_6___default.a, {
         href: "/account",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 56
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("a", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 57
         },
         __self: this
-      }, "Account"))));
+      }, "Account")))));
     }
   }]);
 
