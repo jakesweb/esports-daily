@@ -2,5 +2,5 @@
 .env
 variables.env
 
-# Node directory
-**/node_modules
+# Node directories
+node_modules/
