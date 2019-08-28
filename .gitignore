@@ -1,0 +1,6 @@
+# Environment Files
+.env
+variables.env
+
+# Node directory
+node_modules/

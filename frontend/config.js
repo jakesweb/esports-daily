@@ -1,2 +1,2 @@
 // client side configuration
-export const endpoint = "http://localhost:4444";
+export const endpoint = "http://localhost:4000";
