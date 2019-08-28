@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/esports-daily/esports-daily-db/dev
-# timestamp: Sun Aug 18 2019 14:28:09 GMT-0400 (Eastern Daylight Time)
+# timestamp: Tue Aug 27 2019 22:17:40 GMT-0400 (Eastern Daylight Time)
 
 type AggregateComments {
   count: Int!
@@ -766,6 +766,7 @@ enum Platforms {
 type Post implements Node {
   id: ID!
   title: String!
+  description: String!
   body: String!
   tags(where: TagsWhereInput, orderBy: TagsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Tags!]
   comments(where: CommentsWhereInput, orderBy: CommentsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Comments!]
@@ -786,6 +787,7 @@ type PostConnection {
 input PostCreateInput {
   id: ID
   title: String!
+  description: String!
   body: String!
   tags: TagsCreateManyInput
   comments: CommentsCreateManyInput
@@ -810,6 +812,8 @@ enum PostOrderByInput {
   id_DESC
   title_ASC
   title_DESC
+  description_ASC
+  description_DESC
   body_ASC
   body_DESC
   createdAt_ASC
@@ -821,6 +825,7 @@ enum PostOrderByInput {
 type PostPreviousValues {
   id: ID!
   title: String!
+  description: String!
   body: String!
   createdAt: DateTime!
   updatedAt: DateTime
@@ -915,6 +920,46 @@ input PostScalarWhereInput {
 
   """All values not ending with the given string."""
   title_not_ends_with: String
+  description: String
+
+  """All values that are not equal to given value."""
+  description_not: String
+
+  """All values that are contained in given list."""
+  description_in: [String!]
+
+  """All values that are not contained in given list."""
+  description_not_in: [String!]
+
+  """All values less than the given value."""
+  description_lt: String
+
+  """All values less than or equal the given value."""
+  description_lte: String
+
+  """All values greater than the given value."""
+  description_gt: String
+
+  """All values greater than or equal the given value."""
+  description_gte: String
+
+  """All values containing the given string."""
+  description_contains: String
+
+  """All values not containing the given string."""
+  description_not_contains: String
+
+  """All values starting with the given string."""
+  description_starts_with: String
+
+  """All values not starting with the given string."""
+  description_not_starts_with: String
+
+  """All values ending with the given string."""
+  description_ends_with: String
+
+  """All values not ending with the given string."""
+  description_not_ends_with: String
   body: String
 
   """All values that are not equal to given value."""
@@ -1042,6 +1087,7 @@ input PostSubscriptionWhereInput {
 
 input PostUpdateDataInput {
   title: String
+  description: String
   body: String
   tags: TagsUpdateManyInput
   comments: CommentsUpdateManyInput
@@ -1049,6 +1095,7 @@ input PostUpdateDataInput {
 
 input PostUpdateInput {
   title: String
+  description: String
   body: String
   tags: TagsUpdateManyInput
   comments: CommentsUpdateManyInput
@@ -1056,6 +1103,7 @@ input PostUpdateInput {
 
 input PostUpdateManyDataInput {
   title: String
+  description: String
   body: String
 }
 
@@ -1073,6 +1121,7 @@ input PostUpdateManyInput {
 
 input PostUpdateManyMutationInput {
   title: String
+  description: String
   body: String
 }
 
@@ -1181,6 +1230,46 @@ input PostWhereInput {
 
   """All values not ending with the given string."""
   title_not_ends_with: String
+  description: String
+
+  """All values that are not equal to given value."""
+  description_not: String
+
+  """All values that are contained in given list."""
+  description_in: [String!]
+
+  """All values that are not contained in given list."""
+  description_not_in: [String!]
+
+  """All values less than the given value."""
+  description_lt: String
+
+  """All values less than or equal the given value."""
+  description_lte: String
+
+  """All values greater than the given value."""
+  description_gt: String
+
+  """All values greater than or equal the given value."""
+  description_gte: String
+
+  """All values containing the given string."""
+  description_contains: String
+
+  """All values not containing the given string."""
+  description_not_contains: String
+
+  """All values starting with the given string."""
+  description_starts_with: String
+
+  """All values not starting with the given string."""
+  description_not_starts_with: String
+
+  """All values ending with the given string."""
+  description_ends_with: String
+
+  """All values not ending with the given string."""
+  description_not_ends_with: String
   body: String
 
   """All values that are not equal to given value."""
@@ -1633,6 +1722,7 @@ type Users implements Node {
   active: Boolean
   permissions: [Permissions!]!
   comments(where: CommentsWhereInput, orderBy: CommentsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Comments!]
+  createdAt: DateTime!
 }
 
 """A connection to a list of items."""
@@ -1680,6 +1770,8 @@ enum UsersOrderByInput {
   password_DESC
   active_ASC
   active_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type UsersPreviousValues {
@@ -1689,6 +1781,7 @@ type UsersPreviousValues {
   password: String!
   active: Boolean
   permissions: [Permissions!]!
+  createdAt: DateTime!
 }
 
 type UsersSubscriptionPayload {
@@ -1925,6 +2018,28 @@ input UsersWhereInput {
 
   """All values that are not equal to given value."""
   active_not: Boolean
+  createdAt: DateTime
+
+  """All values that are not equal to given value."""
+  createdAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
   posts_every: PostWhereInput
   posts_some: PostWhereInput
   posts_none: PostWhereInput

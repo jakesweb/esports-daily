@@ -2,6 +2,7 @@
 
 type Mutation {
   createPost(title: String, body: String): Post!
+  signup(name: String, email: String, password: String): Users!
 }
 
 type Query {

@@ -28,6 +28,7 @@ type Esports {
 type Post {
   id: ID! @id
   title: String!
+  description: String!
   body: String!
   tags: [Tags] @scalarList(strategy: RELATION)
   comments: [Comments] @scalarList(strategy: RELATION)
@@ -53,4 +54,5 @@ type Users {
     @scalarList(strategy: RELATION)
     @default(value: USERS)
   comments: [Comments] @scalarList(strategy: RELATION)
+  createdAt: DateTime! @createdAt
 }
