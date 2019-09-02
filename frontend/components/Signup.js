@@ -61,7 +61,7 @@ const LinkStyle = styled.div`
   }
 `;
 
-export default class Signup extends Component {
+class Signup extends Component {
   state = {
     name: "",
     email: "",
@@ -131,3 +131,6 @@ export default class Signup extends Component {
     );
   }
 }
+
+export default Signup;
+export { SIGNUP_MUTATION };
