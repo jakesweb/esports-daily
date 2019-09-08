@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 
+import Nav from "./Nav";
+
 const Heading = styled.div`
   .container-div {
     display: flex;
@@ -18,21 +20,6 @@ const Heading = styled.div`
   p {
     margin-top: 0;
   }
-  nav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-between;
-    margin-top: 5%;
-    margin-right: 5%;
-  }
-  nav a {
-    text-align: center;
-    margin: 10px;
-    font-size: 1.2em;
-  }
-  nav a:hover {
-    color: red;
-  }
 `;
 
 class Header extends Component {
@@ -46,17 +33,7 @@ class Header extends Component {
             </h1>
             <p>Your daily source for esports news</p>
           </div>
-          <nav>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-            <Link href="/articles">
-              <a>Articles</a>
-            </Link>
-            <Link href="/account">
-              <a>Account</a>
-            </Link>
-          </nav>
+          <Nav />
         </div>
       </Heading>
     );

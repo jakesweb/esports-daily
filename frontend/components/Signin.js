@@ -3,6 +3,8 @@ import { Mutation } from "react-apollo";
 import styled from "styled-components";
 import gql from "graphql-tag";
 
+import DisplayError from "./DisplayError";
+
 const SIGNIN_MUTATION = gql`
   mutation SIGNIN_MUTATION($email: String!, $password: String!) {
     signin(email: $email, password: $password) {
@@ -71,6 +73,7 @@ class Signin extends Component {
               }}
             >
               <fieldset disabled={loading} aria-busy={loading}>
+                <DisplayError error={error} />
                 <h2>Sign In</h2>
                 <label htmlFor="email">
                   Email

@@ -1,5 +1,90 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/signin.js"],{
 
+/***/ "./components/DisplayError.js":
+/*!************************************!*\
+  !*** ./components/DisplayError.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/home/jcolborn/Documents/code/esports-daily/frontend/components/DisplayError.js";
+
+
+
+var ErrorStyles = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "DisplayError__ErrorStyles",
+  componentId: "sc-1eiatpj-0"
+})(["padding:2rem;background:white;margin:2rem 0;border:1px solid rgba(0,0,0,0.05);border-left:5px solid red;p{margin:0;font-weight:100;}strong{margin-right:1rem;}"]);
+
+var DisplayError = function DisplayError(_ref) {
+  var error = _ref.error;
+  if (!error || !error.message) return null;
+
+  if (error.networkError && error.networkError.result && error.networkError.result.errors.length) {
+    return error.networkError.result.errors.map(function (error, i) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ErrorStyles, {
+        key: i,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        "data-test": "graphql-error",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        },
+        __self: this
+      }, "Shoot!"), error.message.replace("GraphQL error: ", "")));
+    });
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ErrorStyles, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    "data-test": "graphql-error",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39
+    },
+    __self: this
+  }, "Shoot!"), error.message.replace("GraphQL error: ", "")));
+};
+
+DisplayError.defaultProps = {
+  error: {}
+};
+DisplayError.propTypes = {
+  error: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object
+};
+/* harmony default export */ __webpack_exports__["default"] = (DisplayError);
+
+/***/ }),
+
 /***/ "./components/Signin.js":
 /*!******************************!*\
   !*** ./components/Signin.js ***!
@@ -27,6 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _DisplayError__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./DisplayError */ "./components/DisplayError.js");
 
 
 
@@ -48,6 +134,7 @@ function _templateObject() {
 
   return data;
 }
+
 
 
 
@@ -99,7 +186,7 @@ function (_Component) {
         variables: this.state,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 65
         },
         __self: this
       }, function (signin, _ref) {
@@ -141,7 +228,7 @@ function (_Component) {
           }(),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 67
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("fieldset", {
@@ -149,20 +236,27 @@ function (_Component) {
           "aria-busy": loading,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 73
+            lineNumber: 75
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("h2", {
+        }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_DisplayError__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          error: error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 74
+            lineNumber: 76
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("h2", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 77
           },
           __self: this
         }, "Sign In"), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("label", {
           htmlFor: "email",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 75
+            lineNumber: 78
           },
           __self: this
         }, "Email", react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("input", {
@@ -173,14 +267,14 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 77
+            lineNumber: 80
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("label", {
           htmlFor: "password",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 88
           },
           __self: this
         }, "Password", react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("input", {
@@ -191,14 +285,14 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 87
+            lineNumber: 90
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95
+            lineNumber: 98
           },
           __self: this
         }, "Sign In!")));
@@ -25129,7 +25223,7 @@ var signin = function signin(props) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!***********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fsignin&absolutePagePath=%2Fhome%2Fjcolborn%2FDocuments%2Fcode%2Fesports-daily%2Ffrontend%2Fpages%2Fsignin.js ***!
   \***********************************************************************************************************************************************************/
@@ -25152,5 +25246,5 @@ module.exports = dll_7aff549c98b978433226;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=signin.js.map

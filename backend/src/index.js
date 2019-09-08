@@ -23,7 +23,7 @@ server.express.use((req, res, next) => {
 // create the midleware to populate the user on the request
 server.express.use(async (req, res, next) => {
   if (!req.userId) return next();
-  const user = await db.query.user(
+  const user = await db.query.users(
     { where: { id: req.userId } },
     "{ id, permissions, email, name }"
   );

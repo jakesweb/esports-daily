@@ -19,4 +19,5 @@ type Query {
     first: Int
   ): [Post]!
   post(where: PostWhereUniqueInput!): Post
+  me: Users
 }
