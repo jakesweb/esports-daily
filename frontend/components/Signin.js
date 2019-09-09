@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import Router from "next/router";
 import { Mutation } from "react-apollo";
 import styled from "styled-components";
 import gql from "graphql-tag";
 
+import { CURRENT_USER_QUERY } from "./User";
 import DisplayError from "./DisplayError";
 
 const SIGNIN_MUTATION = gql`
@@ -62,7 +64,11 @@ class Signin extends Component {
   render() {
     return (
       <>
-        <Mutation mutation={SIGNIN_MUTATION} variables={this.state}>
+        <Mutation
+          mutation={SIGNIN_MUTATION}
+          variables={this.state}
+          refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+        >
           {(signin, { error, loading }) => (
             <StyledForm
               method="post"

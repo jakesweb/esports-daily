@@ -4,16 +4,16 @@ import User from "./User";
 
 const NavStyle = styled.nav`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   justify-content: space-between;
   margin-top: 5%;
   margin-right: 5%;
-  nav a {
+  a {
     text-align: center;
     margin: 10px;
     font-size: 1.2em;
   }
-  nav a:hover {
+  a:hover {
     color: red;
   }
 `;
@@ -30,11 +30,16 @@ const Nav = () => (
           <Link href="/articles">
             <a>Articles</a>
           </Link>
-          <Link href="/account">
-            <a>Account</a>
-          </Link>
+          {!me && (
+            <Link href="/account">
+              <a>Account</a>
+            </Link>
+          )}
           {me && (
             <>
+              <Link href="/account">
+                <a>{me.name}</a>
+              </Link>
               <Link href="/submit">
                 <a>Submit</a>
               </Link>

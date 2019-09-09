@@ -180,7 +180,7 @@ var _jsxFileName = "/home/jcolborn/Documents/code/esports-daily/frontend/compone
 var NavStyle = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].nav.withConfig({
   displayName: "Nav__NavStyle",
   componentId: "sc-15qbub9-0"
-})(["display:grid;grid-template-columns:repeat(3,1fr);justify-content:space-between;margin-top:5%;margin-right:5%;nav a{text-align:center;margin:10px;font-size:1.2em;}nav a:hover{color:red;}"]);
+})(["display:grid;grid-template-columns:repeat(6,1fr);justify-content:space-between;margin-top:5%;margin-right:5%;a{text-align:center;margin:10px;font-size:1.2em;}a:hover{color:red;}"]);
 
 var Nav = function Nav() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -224,43 +224,56 @@ var Nav = function Nav() {
         lineNumber: 31
       },
       __self: this
-    }, "Articles")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    }, "Articles")), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/account",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 33
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 34
       },
       __self: this
-    }, "Account")), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/submit",
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 35
+      },
+      __self: this
+    }, "Account")), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/account",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 41
+      },
+      __self: this
+    }, me.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/submit",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44
       },
       __self: this
     }, "Submit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/signout",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 46
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 47
       },
       __self: this
     }, "Signout"))));
