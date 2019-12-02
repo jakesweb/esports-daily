@@ -44,7 +44,7 @@ const Mutation = {
     // check if user exists
     const user = await ctx.db.query.users({ where: { email } });
     if (!user) {
-      throw new Error("No such user found for email ${email}");
+      throw new Error("No user found with that email address");
     }
     // check if their password is correct
     const valid = await bcrypt.compare(password, user.password);

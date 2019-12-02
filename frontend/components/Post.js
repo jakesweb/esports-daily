@@ -23,10 +23,14 @@ export default class Post extends Component {
   render() {
     const { post } = this.props;
     return (
-      <PostStyles>
-        <p>{post.title}</p>
-        <p>{post.description}</p>
-      </PostStyles>
+      <Link href="/article/[id]" as={`/article/${post.id}`}>
+        <a>
+          <PostStyles>
+            <p>{post.title}</p>
+            <p>{post.description}</p>
+          </PostStyles>
+        </a>
+      </Link>
     );
   }
 }

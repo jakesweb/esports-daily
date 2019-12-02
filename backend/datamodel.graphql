@@ -28,7 +28,7 @@ type Esports {
 type Post {
   id: ID! @id
   title: String!
-  description: String!
+  description: String
   body: String!
   tags: [Tags] @scalarList(strategy: RELATION)
   comments: [Comments] @scalarList(strategy: RELATION)

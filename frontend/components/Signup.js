@@ -122,11 +122,6 @@ class Signup extends Component {
             </StyledForm>
           )}
         </Mutation>
-        <LinkStyle>
-          <Link href="/signin">
-            <a>If you have an account, then you can sign in by clicking here</a>
-          </Link>
-        </LinkStyle>
       </>
     );
   }
