@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import User from "./User";
+import Signout from "./Signout";
 
 const NavStyle = styled.nav`
   display: grid;
@@ -43,9 +44,7 @@ const Nav = () => (
               <Link href="/submit">
                 <a>Submit</a>
               </Link>
-              <Link href="/signout">
-                <a>Signout</a>
-              </Link>
+              <Signout />
             </>
           )}
         </NavStyle>
