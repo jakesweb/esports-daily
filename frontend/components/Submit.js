@@ -1,4 +1,26 @@
 import styled from "styled-components";
+import gql from "graphql-tag";
+import { Mutation } from "react-apollo";
+
+const ARTICLE_MUTATION = gql`
+  mutation ARTICLE_MUTATION(
+    $title: String!
+    $description: String
+    $body: String!
+    $tags: [Tags]
+  ) {
+    createPost(
+      title: $title
+      description: $description
+      body: $body
+      tags: $tags
+    ) {
+      id
+      title
+      createdAt
+    }
+  }
+`;
 
 const FormStyle = styled.form`
   label {
@@ -20,10 +42,18 @@ const FormStyle = styled.form`
   input[type="checkbox"] {
     margin: 0 auto;
   }
+  input[type="text"],
+  textarea {
+    border: 5px yellow solid;
+    border-radius: 10px;
+  }
   button {
     font-size: 1.5em;
     font-weight: 600;
     font-style: italic;
+    background: yellow;
+    border: 2px black solid;
+    border-radius: 10px;
   }
 `;
 

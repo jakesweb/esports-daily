@@ -5,7 +5,12 @@ type SuccessMessage {
 }
 
 type Mutation {
-  createPost(title: String, body: String): Post!
+  createPost(
+    title: String!
+    description: String
+    body: String!
+    tags: [Tags]
+  ): Post!
   signup(name: String!, email: String!, password: String!): Users!
   signin(email: String!, password: String!): Users!
   signout: SuccessMessage

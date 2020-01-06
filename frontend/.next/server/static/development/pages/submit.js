@@ -106,14 +106,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "C:\\Users\\jacob\\OneDrive\\code\\esports-daily\\frontend\\components\\Submit.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+
+
+const ARTICLE_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default.a`
+  mutation ARTICLE_MUTATION(
+    $title: String!
+    $description: String
+    $body: String!
+    $tags: [Tags]
+  ) {
+    createPost(
+      title: $title
+      description: $description
+      body: $body
+      tags: $tags
+    ) {
+      id
+      title
+      createdAt
+    }
+  }
+`;
 const FormStyle = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.form.withConfig({
   displayName: "Submit__FormStyle",
   componentId: "sc-149xhhl-0"
-})(["label{font-size:1.2em;font-weight:600;font-style:italic;color:#010101;display:block;}input[type=\"text\"],textarea{width:50em;}#tags{margin:0 auto;margin-bottom:2em;display:block;}input[type=\"checkbox\"]{margin:0 auto;}button{font-size:1.5em;font-weight:600;font-style:italic;}"]);
+})(["label{font-size:1.2em;font-weight:600;font-style:italic;color:#010101;display:block;}input[type=\"text\"],textarea{width:50em;}#tags{margin:0 auto;margin-bottom:2em;display:block;}input[type=\"checkbox\"]{margin:0 auto;}input[type=\"text\"],textarea{border:5px yellow solid;border-radius:10px;}button{font-size:1.5em;font-weight:600;font-style:italic;background:yellow;border:2px black solid;border-radius:10px;}"]);
 const BodyDiv = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
   displayName: "Submit__BodyDiv",
   componentId: "sc-149xhhl-1"
@@ -122,26 +147,26 @@ const BodyDiv = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.wit
 const Submit = () => __jsx(BodyDiv, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 35
+    lineNumber: 65
   },
   __self: undefined
 }, __jsx("h1", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 36
+    lineNumber: 66
   },
   __self: undefined
 }, "Submit an article"), __jsx(FormStyle, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 37
+    lineNumber: 67
   },
   __self: undefined
 }, __jsx("label", {
   for: "title",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 38
+    lineNumber: 68
   },
   __self: undefined
 }, "TITLE"), __jsx("input", {
@@ -149,14 +174,14 @@ const Submit = () => __jsx(BodyDiv, {
   id: "title",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 39
+    lineNumber: 69
   },
   __self: undefined
 }), __jsx("label", {
   for: "description",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 40
+    lineNumber: 70
   },
   __self: undefined
 }, "DESCRIPTION"), __jsx("input", {
@@ -164,14 +189,14 @@ const Submit = () => __jsx(BodyDiv, {
   id: "description",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 41
+    lineNumber: 71
   },
   __self: undefined
 }), __jsx("label", {
   for: "body",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 42
+    lineNumber: 72
   },
   __self: undefined
 }, "BODY (MARKDOWN SUPPORTED)"), __jsx("textarea", {
@@ -180,14 +205,14 @@ const Submit = () => __jsx(BodyDiv, {
   id: "body",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 43
+    lineNumber: 73
   },
   __self: undefined
 }), __jsx("label", {
   for: "publish",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 44
+    lineNumber: 74
   },
   __self: undefined
 }, "PUBLISH"), __jsx("input", {
@@ -195,14 +220,14 @@ const Submit = () => __jsx(BodyDiv, {
   id: "publish",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 45
+    lineNumber: 75
   },
   __self: undefined
 }), __jsx("label", {
   for: "tags",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 46
+    lineNumber: 76
   },
   __self: undefined
 }, "TAGS"), __jsx("input", {
@@ -210,7 +235,7 @@ const Submit = () => __jsx(BodyDiv, {
   id: "tags",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 47
+    lineNumber: 77
   },
   __self: undefined
 }), __jsx("button", {
@@ -218,7 +243,7 @@ const Submit = () => __jsx(BodyDiv, {
   id: "submit",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 48
+    lineNumber: 78
   },
   __self: undefined
 }, "Submit")));
@@ -271,6 +296,17 @@ module.exports = __webpack_require__(/*! C:\Users\jacob\OneDrive\code\esports-da
 
 /***/ }),
 
+/***/ "graphql-tag":
+/*!******************************!*\
+  !*** external "graphql-tag" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("graphql-tag");
+
+/***/ }),
+
 /***/ "react":
 /*!************************!*\
   !*** external "react" ***!
@@ -279,6 +315,17 @@ module.exports = __webpack_require__(/*! C:\Users\jacob\OneDrive\code\esports-da
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-apollo":
+/*!*******************************!*\
+  !*** external "react-apollo" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-apollo");
 
 /***/ }),
 
