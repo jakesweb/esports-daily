@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/esports-daily/esports-daily-db/dev
-# timestamp: Mon Sep 02 2019 17:51:18 GMT-0400 (Eastern Daylight Time)
+# timestamp: Wed Jan 08 2020 23:50:16 GMT-0500 (Eastern Standard Time)
 
 type AggregateComments {
   count: Int!
@@ -10,10 +10,6 @@ type AggregateEsports {
 }
 
 type AggregatePost {
-  count: Int!
-}
-
-type AggregateTags {
   count: Int!
 }
 
@@ -692,32 +688,26 @@ type Mutation {
   createEsports(data: EsportsCreateInput!): Esports!
   createUsers(data: UsersCreateInput!): Users!
   createPost(data: PostCreateInput!): Post!
-  createTags(data: TagsCreateInput!): Tags!
   createComments(data: CommentsCreateInput!): Comments!
   updateEsports(data: EsportsUpdateInput!, where: EsportsWhereUniqueInput!): Esports
   updateUsers(data: UsersUpdateInput!, where: UsersWhereUniqueInput!): Users
   updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
-  updateTags(data: TagsUpdateInput!, where: TagsWhereUniqueInput!): Tags
   updateComments(data: CommentsUpdateInput!, where: CommentsWhereUniqueInput!): Comments
   deleteEsports(where: EsportsWhereUniqueInput!): Esports
   deleteUsers(where: UsersWhereUniqueInput!): Users
   deletePost(where: PostWhereUniqueInput!): Post
-  deleteTags(where: TagsWhereUniqueInput!): Tags
   deleteComments(where: CommentsWhereUniqueInput!): Comments
   upsertEsports(where: EsportsWhereUniqueInput!, create: EsportsCreateInput!, update: EsportsUpdateInput!): Esports!
   upsertUsers(where: UsersWhereUniqueInput!, create: UsersCreateInput!, update: UsersUpdateInput!): Users!
   upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
-  upsertTags(where: TagsWhereUniqueInput!, create: TagsCreateInput!, update: TagsUpdateInput!): Tags!
   upsertComments(where: CommentsWhereUniqueInput!, create: CommentsCreateInput!, update: CommentsUpdateInput!): Comments!
   updateManyEsportses(data: EsportsUpdateManyMutationInput!, where: EsportsWhereInput): BatchPayload!
   updateManyUserses(data: UsersUpdateManyMutationInput!, where: UsersWhereInput): BatchPayload!
   updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
-  updateManyTagses(data: TagsUpdateManyMutationInput!, where: TagsWhereInput): BatchPayload!
   updateManyCommentses(data: CommentsUpdateManyMutationInput!, where: CommentsWhereInput): BatchPayload!
   deleteManyEsportses(where: EsportsWhereInput): BatchPayload!
   deleteManyUserses(where: UsersWhereInput): BatchPayload!
   deleteManyPosts(where: PostWhereInput): BatchPayload!
-  deleteManyTagses(where: TagsWhereInput): BatchPayload!
   deleteManyCommentses(where: CommentsWhereInput): BatchPayload!
 }
 
@@ -766,9 +756,9 @@ enum Platforms {
 type Post implements Node {
   id: ID!
   title: String!
-  description: String!
+  description: String
   body: String!
-  tags(where: TagsWhereInput, orderBy: TagsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Tags!]
+  tags: [String!]!
   comments(where: CommentsWhereInput, orderBy: CommentsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Comments!]
   createdAt: DateTime!
   updatedAt: DateTime
@@ -787,15 +777,19 @@ type PostConnection {
 input PostCreateInput {
   id: ID
   title: String!
-  description: String!
+  description: String
   body: String!
-  tags: TagsCreateManyInput
+  tags: PostCreatetagsInput
   comments: CommentsCreateManyInput
 }
 
 input PostCreateManyInput {
   create: [PostCreateInput!]
   connect: [PostWhereUniqueInput!]
+}
+
+input PostCreatetagsInput {
+  set: [String!]
 }
 
 """An edge in a connection."""
@@ -825,8 +819,9 @@ enum PostOrderByInput {
 type PostPreviousValues {
   id: ID!
   title: String!
-  description: String!
+  description: String
   body: String!
+  tags: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime
 }
@@ -1089,7 +1084,7 @@ input PostUpdateDataInput {
   title: String
   description: String
   body: String
-  tags: TagsUpdateManyInput
+  tags: PostUpdatetagsInput
   comments: CommentsUpdateManyInput
 }
 
@@ -1097,7 +1092,7 @@ input PostUpdateInput {
   title: String
   description: String
   body: String
-  tags: TagsUpdateManyInput
+  tags: PostUpdatetagsInput
   comments: CommentsUpdateManyInput
 }
 
@@ -1105,6 +1100,7 @@ input PostUpdateManyDataInput {
   title: String
   description: String
   body: String
+  tags: PostUpdatetagsInput
 }
 
 input PostUpdateManyInput {
@@ -1123,11 +1119,16 @@ input PostUpdateManyMutationInput {
   title: String
   description: String
   body: String
+  tags: PostUpdatetagsInput
 }
 
 input PostUpdateManyWithWhereNestedInput {
   where: PostScalarWhereInput!
   data: PostUpdateManyDataInput!
+}
+
+input PostUpdatetagsInput {
+  set: [String!]
 }
 
 input PostUpdateWithWhereUniqueNestedInput {
@@ -1354,9 +1355,6 @@ input PostWhereInput {
 
   """All values greater than or equal the given value."""
   updatedAt_gte: DateTime
-  tags_every: TagsWhereInput
-  tags_some: TagsWhereInput
-  tags_none: TagsWhereInput
   comments_every: CommentsWhereInput
   comments_some: CommentsWhereInput
   comments_none: CommentsWhereInput
@@ -1370,17 +1368,14 @@ type Query {
   esportses(where: EsportsWhereInput, orderBy: EsportsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Esports]!
   userses(where: UsersWhereInput, orderBy: UsersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Users]!
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
-  tagses(where: TagsWhereInput, orderBy: TagsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Tags]!
   commentses(where: CommentsWhereInput, orderBy: CommentsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Comments]!
   esports(where: EsportsWhereUniqueInput!): Esports
   users(where: UsersWhereUniqueInput!): Users
   post(where: PostWhereUniqueInput!): Post
-  tags(where: TagsWhereUniqueInput!): Tags
   comments(where: CommentsWhereUniqueInput!): Comments
   esportsesConnection(where: EsportsWhereInput, orderBy: EsportsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): EsportsConnection!
   usersesConnection(where: UsersWhereInput, orderBy: UsersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UsersConnection!
   postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
-  tagsesConnection(where: TagsWhereInput, orderBy: TagsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TagsConnection!
   commentsesConnection(where: CommentsWhereInput, orderBy: CommentsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CommentsConnection!
 
   """Fetches an object given its ID"""
@@ -1394,323 +1389,7 @@ type Subscription {
   esports(where: EsportsSubscriptionWhereInput): EsportsSubscriptionPayload
   users(where: UsersSubscriptionWhereInput): UsersSubscriptionPayload
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
-  tags(where: TagsSubscriptionWhereInput): TagsSubscriptionPayload
   comments(where: CommentsSubscriptionWhereInput): CommentsSubscriptionPayload
-}
-
-type Tags implements Node {
-  id: ID!
-  name: String!
-}
-
-"""A connection to a list of items."""
-type TagsConnection {
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
-
-  """A list of edges."""
-  edges: [TagsEdge]!
-  aggregate: AggregateTags!
-}
-
-input TagsCreateInput {
-  id: ID
-  name: String!
-}
-
-input TagsCreateManyInput {
-  create: [TagsCreateInput!]
-  connect: [TagsWhereUniqueInput!]
-}
-
-"""An edge in a connection."""
-type TagsEdge {
-  """The item at the end of the edge."""
-  node: Tags!
-
-  """A cursor for use in pagination."""
-  cursor: String!
-}
-
-enum TagsOrderByInput {
-  id_ASC
-  id_DESC
-  name_ASC
-  name_DESC
-}
-
-type TagsPreviousValues {
-  id: ID!
-  name: String!
-}
-
-input TagsScalarWhereInput {
-  """Logical AND on all given filters."""
-  AND: [TagsScalarWhereInput!]
-
-  """Logical OR on all given filters."""
-  OR: [TagsScalarWhereInput!]
-
-  """Logical NOT on all given filters combined by AND."""
-  NOT: [TagsScalarWhereInput!]
-  id: ID
-
-  """All values that are not equal to given value."""
-  id_not: ID
-
-  """All values that are contained in given list."""
-  id_in: [ID!]
-
-  """All values that are not contained in given list."""
-  id_not_in: [ID!]
-
-  """All values less than the given value."""
-  id_lt: ID
-
-  """All values less than or equal the given value."""
-  id_lte: ID
-
-  """All values greater than the given value."""
-  id_gt: ID
-
-  """All values greater than or equal the given value."""
-  id_gte: ID
-
-  """All values containing the given string."""
-  id_contains: ID
-
-  """All values not containing the given string."""
-  id_not_contains: ID
-
-  """All values starting with the given string."""
-  id_starts_with: ID
-
-  """All values not starting with the given string."""
-  id_not_starts_with: ID
-
-  """All values ending with the given string."""
-  id_ends_with: ID
-
-  """All values not ending with the given string."""
-  id_not_ends_with: ID
-  name: String
-
-  """All values that are not equal to given value."""
-  name_not: String
-
-  """All values that are contained in given list."""
-  name_in: [String!]
-
-  """All values that are not contained in given list."""
-  name_not_in: [String!]
-
-  """All values less than the given value."""
-  name_lt: String
-
-  """All values less than or equal the given value."""
-  name_lte: String
-
-  """All values greater than the given value."""
-  name_gt: String
-
-  """All values greater than or equal the given value."""
-  name_gte: String
-
-  """All values containing the given string."""
-  name_contains: String
-
-  """All values not containing the given string."""
-  name_not_contains: String
-
-  """All values starting with the given string."""
-  name_starts_with: String
-
-  """All values not starting with the given string."""
-  name_not_starts_with: String
-
-  """All values ending with the given string."""
-  name_ends_with: String
-
-  """All values not ending with the given string."""
-  name_not_ends_with: String
-}
-
-type TagsSubscriptionPayload {
-  mutation: MutationType!
-  node: Tags
-  updatedFields: [String!]
-  previousValues: TagsPreviousValues
-}
-
-input TagsSubscriptionWhereInput {
-  """Logical AND on all given filters."""
-  AND: [TagsSubscriptionWhereInput!]
-
-  """Logical OR on all given filters."""
-  OR: [TagsSubscriptionWhereInput!]
-
-  """Logical NOT on all given filters combined by AND."""
-  NOT: [TagsSubscriptionWhereInput!]
-
-  """
-  The subscription event gets dispatched when it's listed in mutation_in
-  """
-  mutation_in: [MutationType!]
-
-  """
-  The subscription event gets only dispatched when one of the updated fields names is included in this list
-  """
-  updatedFields_contains: String
-
-  """
-  The subscription event gets only dispatched when all of the field names included in this list have been updated
-  """
-  updatedFields_contains_every: [String!]
-
-  """
-  The subscription event gets only dispatched when some of the field names included in this list have been updated
-  """
-  updatedFields_contains_some: [String!]
-  node: TagsWhereInput
-}
-
-input TagsUpdateDataInput {
-  name: String
-}
-
-input TagsUpdateInput {
-  name: String
-}
-
-input TagsUpdateManyDataInput {
-  name: String
-}
-
-input TagsUpdateManyInput {
-  create: [TagsCreateInput!]
-  connect: [TagsWhereUniqueInput!]
-  set: [TagsWhereUniqueInput!]
-  disconnect: [TagsWhereUniqueInput!]
-  delete: [TagsWhereUniqueInput!]
-  update: [TagsUpdateWithWhereUniqueNestedInput!]
-  updateMany: [TagsUpdateManyWithWhereNestedInput!]
-  deleteMany: [TagsScalarWhereInput!]
-  upsert: [TagsUpsertWithWhereUniqueNestedInput!]
-}
-
-input TagsUpdateManyMutationInput {
-  name: String
-}
-
-input TagsUpdateManyWithWhereNestedInput {
-  where: TagsScalarWhereInput!
-  data: TagsUpdateManyDataInput!
-}
-
-input TagsUpdateWithWhereUniqueNestedInput {
-  where: TagsWhereUniqueInput!
-  data: TagsUpdateDataInput!
-}
-
-input TagsUpsertWithWhereUniqueNestedInput {
-  where: TagsWhereUniqueInput!
-  update: TagsUpdateDataInput!
-  create: TagsCreateInput!
-}
-
-input TagsWhereInput {
-  """Logical AND on all given filters."""
-  AND: [TagsWhereInput!]
-
-  """Logical OR on all given filters."""
-  OR: [TagsWhereInput!]
-
-  """Logical NOT on all given filters combined by AND."""
-  NOT: [TagsWhereInput!]
-  id: ID
-
-  """All values that are not equal to given value."""
-  id_not: ID
-
-  """All values that are contained in given list."""
-  id_in: [ID!]
-
-  """All values that are not contained in given list."""
-  id_not_in: [ID!]
-
-  """All values less than the given value."""
-  id_lt: ID
-
-  """All values less than or equal the given value."""
-  id_lte: ID
-
-  """All values greater than the given value."""
-  id_gt: ID
-
-  """All values greater than or equal the given value."""
-  id_gte: ID
-
-  """All values containing the given string."""
-  id_contains: ID
-
-  """All values not containing the given string."""
-  id_not_contains: ID
-
-  """All values starting with the given string."""
-  id_starts_with: ID
-
-  """All values not starting with the given string."""
-  id_not_starts_with: ID
-
-  """All values ending with the given string."""
-  id_ends_with: ID
-
-  """All values not ending with the given string."""
-  id_not_ends_with: ID
-  name: String
-
-  """All values that are not equal to given value."""
-  name_not: String
-
-  """All values that are contained in given list."""
-  name_in: [String!]
-
-  """All values that are not contained in given list."""
-  name_not_in: [String!]
-
-  """All values less than the given value."""
-  name_lt: String
-
-  """All values less than or equal the given value."""
-  name_lte: String
-
-  """All values greater than the given value."""
-  name_gt: String
-
-  """All values greater than or equal the given value."""
-  name_gte: String
-
-  """All values containing the given string."""
-  name_contains: String
-
-  """All values not containing the given string."""
-  name_not_contains: String
-
-  """All values starting with the given string."""
-  name_starts_with: String
-
-  """All values not starting with the given string."""
-  name_not_starts_with: String
-
-  """All values ending with the given string."""
-  name_ends_with: String
-
-  """All values not ending with the given string."""
-  name_not_ends_with: String
-}
-
-input TagsWhereUniqueInput {
-  id: ID
 }
 
 type Users implements Node {

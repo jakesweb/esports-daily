@@ -13,11 +13,6 @@ enum Permissions {
   MODERATOR
 }
 
-type Tags {
-  id: ID! @id
-  name: String!
-}
-
 type Esports {
   id: ID! @id
   name: String!
@@ -30,7 +25,7 @@ type Post {
   title: String!
   description: String
   body: String!
-  tags: [Tags] @scalarList(strategy: RELATION)
+  tags: [String] @scalarList(strategy: RELATION)
   comments: [Comments] @scalarList(strategy: RELATION)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime @updatedAt

@@ -9,7 +9,7 @@ type Mutation {
     title: String!
     description: String
     body: String!
-    tags: [Tags]
+    tags: [String]
   ): Post!
   signup(name: String!, email: String!, password: String!): Users!
   signin(email: String!, password: String!): Users!

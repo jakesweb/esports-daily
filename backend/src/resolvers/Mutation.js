@@ -3,10 +3,16 @@ const jwt = require("jsonwebtoken");
 
 const Mutation = {
   async createPost(parent, args, ctx, info) {
+    var tagsArray = JSON.stringify(args.tags);
+    tagsArray = tagsArray
+      .slice(2, tagsArray.length - 2)
+      .replace(/\s/g, "")
+      .split(",");
     const post = await ctx.db.mutation.createPost(
       {
         data: {
-          ...args
+          ...args,
+          tags: { set: tagsArray }
         }
       },
       info
