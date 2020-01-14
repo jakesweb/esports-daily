@@ -17,6 +17,26 @@ const SINGLE_POST_QUERY = gql`
   }
 `;
 
+const StyledDiv = styled.div`
+  overflow: hidden;
+  background-color: yellow;
+  padding-bottom: 10%;
+  .meta {
+    text-align: center;
+    margin: 5%;
+    line-height: 20%;
+    .title {
+      font-size: 1.4em;
+      font-weight: 600;
+    }
+  }
+  .markdown {
+    margin: 0 8%;
+    background-color: lightgrey;
+    padding: 5%;
+  }
+`;
+
 class PostDetail extends Component {
   render() {
     return (
@@ -26,12 +46,19 @@ class PostDetail extends Component {
           if (loading) return <p>Loading ...</p>;
           if (error) return <p>Error: {error.message}</p>;
           return (
-            <>
-              <p>{post.title}</p>
-              <p>{post.createdAt}</p>
-              <p>{post.description}</p>
-              <p>{post.body}</p>
-            </>
+            <StyledDiv>
+              <div class="meta">
+                <p class="title">{post.title}</p>
+                <p>{post.description}</p>
+                <p>
+                  Submitted{" "}
+                  {new Date(post.createdAt).toLocaleDateString("en-US")}
+                </p>
+              </div>
+              <div class="markdown">
+                <ReactMarkdown>{post.body}</ReactMarkdown>
+              </div>
+            </StyledDiv>
           );
         }}
       </Query>

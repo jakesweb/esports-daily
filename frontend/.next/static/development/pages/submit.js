@@ -25160,7 +25160,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 0:
+/***/ 3:
 /*!************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fsubmit&absolutePagePath=C%3A%5CUsers%5Cjacob%5COneDrive%5Ccode%5Cesports-daily%5Cfrontend%5Cpages%5Csubmit.js ***!
   \************************************************************************************************************************************************************/
@@ -25183,5 +25183,5 @@ module.exports = dll_817bc00842ec66b68155;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=submit.js.map
