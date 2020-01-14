@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -114,8 +114,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-transition-group */ "react-transition-group");
+/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_transition_group__WEBPACK_IMPORTED_MODULE_7__);
 var _jsxFileName = "C:\\Users\\jacob\\OneDrive\\code\\esports-daily\\frontend\\components\\PostDetail.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
 
 
 
@@ -130,13 +136,14 @@ const SINGLE_POST_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default.a`
       description
       body
       createdAt
+      tags
     }
   }
 `;
 const StyledDiv = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
   displayName: "PostDetail__StyledDiv",
   componentId: "sc-237jc6-0"
-})(["overflow:hidden;background-color:yellow;padding-bottom:10%;.meta{text-align:center;margin:5%;line-height:20%;.title{font-size:1.4em;font-weight:600;}}.markdown{margin:0 8%;background-color:lightgrey;padding:5%;}"]);
+})(["overflow:hidden;background-color:yellow;padding-bottom:10%;.meta{text-align:center;margin:5%;margin-bottom:0;line-height:20%;.title{font-size:1.4em;font-weight:600;}}.markdown{padding:5%;padding-bottom:0;}"]);
 
 class PostDetail extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
@@ -147,7 +154,7 @@ class PostDetail extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 46
       },
       __self: this
     }, ({
@@ -158,63 +165,77 @@ class PostDetail extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       const {
         post
       } = data;
-      if (loading) return __jsx("p", {
+      if (loading) return __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["CircularProgress"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 49
         },
         __self: this
-      }, "Loading ...");
+      });
       if (error) return __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 50
         },
         __self: this
       }, "Error: ", error.message);
       return __jsx(StyledDiv, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 52
         },
         __self: this
       }, __jsx("div", {
         class: "meta",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 53
         },
         __self: this
       }, __jsx("p", {
         class: "title",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 54
         },
         __self: this
       }, post.title), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 55
         },
         __self: this
       }, post.description), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 56
         },
         __self: this
-      }, "Submitted", " ", new Date(post.createdAt).toLocaleDateString("en-US"))), __jsx("div", {
+      }, "Submitted", " ", new Date(post.createdAt).toLocaleDateString("en-US")), post.tags.forEach((tag, i) => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["Chip"], {
+        key: i,
+        label: tag,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 62
+        },
+        __self: this
+      }))), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["Divider"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65
+        },
+        __self: this
+      })), __jsx("div", {
         class: "markdown",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 67
         },
         __self: this
       }, __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_1___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 68
         },
         __self: this
       }, post.body)));
@@ -266,7 +287,7 @@ const Article = () => {
 
 /***/ }),
 
-/***/ 8:
+/***/ 4:
 /*!*******************************************!*\
   !*** multi ./pages/article/[id]/index.js ***!
   \*******************************************/
@@ -275,6 +296,17 @@ const Article = () => {
 
 module.exports = __webpack_require__(/*! C:\Users\jacob\OneDrive\code\esports-daily\frontend\pages\article\[id]\index.js */"./pages/article/[id]/index.js");
 
+
+/***/ }),
+
+/***/ "@material-ui/core":
+/*!************************************!*\
+  !*** external "@material-ui/core" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core");
 
 /***/ }),
 
@@ -341,6 +373,17 @@ module.exports = require("react-apollo");
 /***/ (function(module, exports) {
 
 module.exports = require("react-markdown");
+
+/***/ }),
+
+/***/ "react-transition-group":
+/*!*****************************************!*\
+  !*** external "react-transition-group" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-transition-group");
 
 /***/ }),
 

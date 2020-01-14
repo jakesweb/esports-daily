@@ -2609,12 +2609,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _lib_withdata__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/withdata */ "./lib/withdata.js");
-/* harmony import */ var _components_Page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Page */ "./components/Page.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _lib_withdata__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../lib/withdata */ "./lib/withdata.js");
+/* harmony import */ var _components_Page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Page */ "./components/Page.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./style.scss */ "./pages/style.scss");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_8__);
 
 var _jsxFileName = "C:\\Users\\jacob\\OneDrive\\code\\esports-daily\\frontend\\pages\\_app.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
 
 
 
@@ -2645,36 +2651,58 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       apollo,
       pageProps
     } = this.props;
-    return __jsx(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+    return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_5___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 25
       },
       __self: this
-    }, __jsx(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
+    }, __jsx("title", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26
+      },
+      __self: this
+    }, "Esports Daily!"), __jsx("meta", {
+      name: "viewport",
+      content: "initial-scale=1.0, width=device-width",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
+      },
+      __self: this
+    }), __jsx("link", {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
+      },
+      __self: this
+    })), __jsx(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
       client: apollo,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 36
       },
       __self: this
     }, __jsx(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["ApolloProvider"], {
       client: apollo,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 37
       },
       __self: this
-    }, __jsx(_components_Page__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }, __jsx(_components_Page__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 38
       },
       __self: this
     }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 39
       },
       __self: this
     }))))));
@@ -2682,7 +2710,18 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_lib_withdata__WEBPACK_IMPORTED_MODULE_5__["default"])(MyApp));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_lib_withdata__WEBPACK_IMPORTED_MODULE_6__["default"])(MyApp));
+
+/***/ }),
+
+/***/ "./pages/style.scss":
+/*!**************************!*\
+  !*** ./pages/style.scss ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 

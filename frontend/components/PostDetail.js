@@ -4,6 +4,8 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import { Divider, Chip, CircularProgress } from "@material-ui/core";
+import { TransitionGroup } from "react-transition-group";
 
 const SINGLE_POST_QUERY = gql`
   query SINGLE_POST_QUERY($postid: ID!) {
@@ -13,6 +15,7 @@ const SINGLE_POST_QUERY = gql`
       description
       body
       createdAt
+      tags
     }
   }
 `;
@@ -24,6 +27,7 @@ const StyledDiv = styled.div`
   .meta {
     text-align: center;
     margin: 5%;
+    margin-bottom: 0;
     line-height: 20%;
     .title {
       font-size: 1.4em;
@@ -31,9 +35,8 @@ const StyledDiv = styled.div`
     }
   }
   .markdown {
-    margin: 0 8%;
-    background-color: lightgrey;
     padding: 5%;
+    padding-bottom: 0;
   }
 `;
 
@@ -43,7 +46,7 @@ class PostDetail extends Component {
       <Query query={SINGLE_POST_QUERY} variables={{ postid: this.props.id }}>
         {({ data, error, loading }) => {
           const { post } = data;
-          if (loading) return <p>Loading ...</p>;
+          if (loading) return <CircularProgress />;
           if (error) return <p>Error: {error.message}</p>;
           return (
             <StyledDiv>
@@ -54,6 +57,12 @@ class PostDetail extends Component {
                   Submitted{" "}
                   {new Date(post.createdAt).toLocaleDateString("en-US")}
                 </p>
+                {post.tags.forEach((tag, i) => (
+                  <>
+                    <Chip key={i} label={tag} />
+                  </>
+                ))}
+                <Divider />
               </div>
               <div class="markdown">
                 <ReactMarkdown>{post.body}</ReactMarkdown>

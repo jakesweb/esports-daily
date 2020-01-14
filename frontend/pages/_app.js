@@ -1,8 +1,11 @@
-import App, { Container } from "next/app";
+import App from "next/app";
 import { ApolloProvider } from "react-apollo";
 import { ApolloProvider as ApolloProviderHooks } from "@apollo/react-hooks";
+import Head from "next/head";
 import withData from "../lib/withdata";
 import Page from "../components/Page";
+
+import "./style.scss";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -18,7 +21,18 @@ class MyApp extends App {
     const { Component, apollo, pageProps } = this.props;
 
     return (
-      <Container>
+      <>
+        <Head>
+          <title>Esports Daily!</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          />
+        </Head>
         <ApolloProvider client={apollo}>
           <ApolloProviderHooks client={apollo}>
             <Page>
@@ -26,7 +40,7 @@ class MyApp extends App {
             </Page>
           </ApolloProviderHooks>
         </ApolloProvider>
-      </Container>
+      </>
     );
   }
 }
