@@ -34,6 +34,23 @@ const StyledDiv = styled.div`
       font-weight: 600;
     }
   }
+  .chips {
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    div {
+      margin: 10px;
+    }
+    span {
+      min-height: 20px;
+      min-width: 80px;
+      font-size: 2em;
+    }
+  }
   .markdown {
     padding: 5%;
     padding-bottom: 0;
@@ -57,13 +74,13 @@ class PostDetail extends Component {
                   Submitted{" "}
                   {new Date(post.createdAt).toLocaleDateString("en-US")}
                 </p>
-                {post.tags.forEach((tag, i) => (
-                  <>
-                    <Chip key={i} label={tag} />
-                  </>
-                ))}
-                <Divider />
               </div>
+              <div class="chips">
+                {post.tags.map((tag, i) => (
+                  <Chip key={i} label={"#" + tag} />
+                ))}
+              </div>
+              <Divider />
               <div class="markdown">
                 <ReactMarkdown>{post.body}</ReactMarkdown>
               </div>

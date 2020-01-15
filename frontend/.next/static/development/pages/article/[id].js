@@ -58,7 +58,7 @@ var SINGLE_POST_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_11___default()(_tem
 var StyledDiv = styled_components__WEBPACK_IMPORTED_MODULE_8__["default"].div.withConfig({
   displayName: "PostDetail__StyledDiv",
   componentId: "sc-237jc6-0"
-})(["overflow:hidden;background-color:yellow;padding-bottom:10%;.meta{text-align:center;margin:5%;margin-bottom:0;line-height:20%;.title{font-size:1.4em;font-weight:600;}}.markdown{padding:5%;padding-bottom:0;}"]);
+})(["overflow:hidden;background-color:yellow;padding-bottom:10%;.meta{text-align:center;margin:5%;margin-bottom:0;line-height:20%;.title{font-size:1.4em;font-weight:600;}}.chips{margin:0 auto;width:60%;text-align:center;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;div{margin:10px;}span{min-height:20px;min-width:80px;font-size:2em;}}.markdown{padding:5%;padding-bottom:0;}"]);
 
 var PostDetail =
 /*#__PURE__*/
@@ -81,7 +81,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 63
         },
         __self: this
       }, function (_ref) {
@@ -92,76 +92,83 @@ function (_Component) {
         if (loading) return __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__["CircularProgress"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 66
           },
           __self: this
         });
         if (error) return __jsx("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 50
+            lineNumber: 67
           },
           __self: this
         }, "Error: ", error.message);
         return __jsx(StyledDiv, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 69
           },
           __self: this
         }, __jsx("div", {
           "class": "meta",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 53
+            lineNumber: 70
           },
           __self: this
         }, __jsx("p", {
           "class": "title",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 54
+            lineNumber: 71
           },
           __self: this
         }, post.title), __jsx("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 72
           },
           __self: this
         }, post.description), __jsx("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 73
           },
           __self: this
-        }, "Submitted", " ", new Date(post.createdAt).toLocaleDateString("en-US")), post.tags.forEach(function (tag, i) {
-          return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__["Chip"], {
-            key: i,
-            label: tag,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 62
-            },
-            __self: this
-          }));
-        }), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__["Divider"], {
+        }, "Submitted", " ", new Date(post.createdAt).toLocaleDateString("en-US"))), __jsx("div", {
+          "class": "chips",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 78
           },
           __self: this
-        })), __jsx("div", {
+        }, post.tags.map(function (tag, i) {
+          return __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__["Chip"], {
+            key: i,
+            label: "#" + tag,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 80
+            },
+            __self: this
+          });
+        })), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__["Divider"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 83
+          },
+          __self: this
+        }), __jsx("div", {
           "class": "markdown",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 84
           },
           __self: this
         }, __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_7___default.a, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 68
+            lineNumber: 85
           },
           __self: this
         }, post.body)));
@@ -87509,7 +87516,7 @@ var Article = function Article() {
 
 /***/ }),
 
-/***/ 1:
+/***/ 3:
 /*!********************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Farticle%2F%5Bid%5D&absolutePagePath=C%3A%5CUsers%5Cjacob%5COneDrive%5Ccode%5Cesports-daily%5Cfrontend%5Cpages%5Carticle%5C%5Bid%5D%5Cindex.js ***!
   \********************************************************************************************************************************************************************************************/
@@ -87532,5 +87539,5 @@ module.exports = dll_817bc00842ec66b68155;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[id].js.map

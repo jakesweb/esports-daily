@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -143,7 +143,7 @@ const SINGLE_POST_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default.a`
 const StyledDiv = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
   displayName: "PostDetail__StyledDiv",
   componentId: "sc-237jc6-0"
-})(["overflow:hidden;background-color:yellow;padding-bottom:10%;.meta{text-align:center;margin:5%;margin-bottom:0;line-height:20%;.title{font-size:1.4em;font-weight:600;}}.markdown{padding:5%;padding-bottom:0;}"]);
+})(["overflow:hidden;background-color:yellow;padding-bottom:10%;.meta{text-align:center;margin:5%;margin-bottom:0;line-height:20%;.title{font-size:1.4em;font-weight:600;}}.chips{margin:0 auto;width:60%;text-align:center;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;div{margin:10px;}span{min-height:20px;min-width:80px;font-size:2em;}}.markdown{padding:5%;padding-bottom:0;}"]);
 
 class PostDetail extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
@@ -154,7 +154,7 @@ class PostDetail extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 63
       },
       __self: this
     }, ({
@@ -168,74 +168,81 @@ class PostDetail extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       if (loading) return __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["CircularProgress"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 66
         },
         __self: this
       });
       if (error) return __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 67
         },
         __self: this
       }, "Error: ", error.message);
       return __jsx(StyledDiv, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 69
         },
         __self: this
       }, __jsx("div", {
         class: "meta",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 70
         },
         __self: this
       }, __jsx("p", {
         class: "title",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 71
         },
         __self: this
       }, post.title), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 72
         },
         __self: this
       }, post.description), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 73
         },
         __self: this
-      }, "Submitted", " ", new Date(post.createdAt).toLocaleDateString("en-US")), post.tags.forEach((tag, i) => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["Chip"], {
-        key: i,
-        label: tag,
+      }, "Submitted", " ", new Date(post.createdAt).toLocaleDateString("en-US"))), __jsx("div", {
+        class: "chips",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 78
+        },
+        __self: this
+      }, post.tags.map((tag, i) => __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["Chip"], {
+        key: i,
+        label: "#" + tag,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80
         },
         __self: this
       }))), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["Divider"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 83
         },
         __self: this
-      })), __jsx("div", {
+      }), __jsx("div", {
         class: "markdown",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 84
         },
         __self: this
       }, __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_1___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 85
         },
         __self: this
       }, post.body)));
@@ -287,7 +294,7 @@ const Article = () => {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!*******************************************!*\
   !*** multi ./pages/article/[id]/index.js ***!
   \*******************************************/
