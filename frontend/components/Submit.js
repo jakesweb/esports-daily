@@ -2,6 +2,7 @@ import { Component } from "react";
 import styled from "styled-components";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
+import User from "./User";
 
 const ARTICLE_MUTATION = gql`
   mutation ARTICLE_MUTATION(
@@ -65,6 +66,10 @@ const BodyDiv = styled.div`
 `;
 
 class Submit extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     title: "",
     description: "",
@@ -77,62 +82,66 @@ class Submit extends Component {
   };
 
   render() {
-    return (
-      <Mutation mutation={ARTICLE_MUTATION} variables={this.state}>
-        {(createPost, { loading, error }) => (
-          <BodyDiv>
-            <h1>Submit an article</h1>
-            <FormStyle
-              method="post"
-              onSubmit={async e => {
-                e.preventDefault();
-                await createPost();
-              }}
-            >
-              <fieldset disabled={loading} aria-busy={loading}>
-                <label htmlFor="title">TITLE</label>
-                <input
-                  type="text"
-                  id="title"
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.saveToState}
-                />
-                <label htmlFor="description">DESCRIPTION</label>
-                <input
-                  type="text"
-                  id="description"
-                  name="description"
-                  value={this.state.description}
-                  onChange={this.saveToState}
-                />
-                <label htmlFor="tags">TAGS</label>
-                <input
-                  type="text"
-                  id="tags"
-                  name="tags"
-                  value={this.state.tags}
-                  onChange={this.saveToState}
-                />
-                <label htmlFor="body">BODY (MARKDOWN SUPPORTED)</label>
-                <textarea
-                  rows="30"
-                  cols="50"
-                  id="body"
-                  name="body"
-                  title="body"
-                  value={this.state.body}
-                  onChange={this.saveToState}
-                />
-                <button type="submit" id="submit">
-                  Submit
-                </button>
-              </fieldset>
-            </FormStyle>
-          </BodyDiv>
-        )}
-      </Mutation>
-    );
+    if (this.props.isLoggedIn.me) {
+      return (
+        <Mutation mutation={ARTICLE_MUTATION} variables={this.state}>
+          {(createPost, { loading, error }) => (
+            <BodyDiv>
+              <h1>Submit an article</h1>
+              <FormStyle
+                method="post"
+                onSubmit={async e => {
+                  e.preventDefault();
+                  await createPost();
+                }}
+              >
+                <fieldset disabled={loading} aria-busy={loading}>
+                  <label htmlFor="title">TITLE</label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value={this.state.title}
+                    onChange={this.saveToState}
+                  />
+                  <label htmlFor="description">DESCRIPTION</label>
+                  <input
+                    type="text"
+                    id="description"
+                    name="description"
+                    value={this.state.description}
+                    onChange={this.saveToState}
+                  />
+                  <label htmlFor="tags">TAGS</label>
+                  <input
+                    type="text"
+                    id="tags"
+                    name="tags"
+                    value={this.state.tags}
+                    onChange={this.saveToState}
+                  />
+                  <label htmlFor="body">BODY (MARKDOWN SUPPORTED)</label>
+                  <textarea
+                    rows="30"
+                    cols="50"
+                    id="body"
+                    name="body"
+                    title="body"
+                    value={this.state.body}
+                    onChange={this.saveToState}
+                  />
+                  <button type="submit" id="submit">
+                    Submit
+                  </button>
+                </fieldset>
+              </FormStyle>
+            </BodyDiv>
+          )}
+        </Mutation>
+      );
+    } else {
+      return <p>You are not logged in!</p>;
+    }
   }
 }
 
