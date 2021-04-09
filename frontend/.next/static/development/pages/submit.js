@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\submit.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/submit.js"],{
 
 /***/ "./components/Submit.js":
 /*!******************************!*\
@@ -36,7 +36,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\jacob\\OneDrive\\code\\esports-daily\\frontend\\components\\Submit.js";
+var _jsxFileName = "/home/jacobcolborn/Documents/esports-daily/frontend/components/Submit.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement;
 
@@ -13776,10 +13776,10 @@ module.exports = (__webpack_require__(/*! dll-reference dll_817bc00842ec66b68155
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsubmit&absolutePagePath=C%3A%5CUsers%5Cjacob%5COneDrive%5Ccode%5Cesports-daily%5Cfrontend%5Cpages%5Csubmit.js!./":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsubmit&absolutePagePath=C%3A%5CUsers%5Cjacob%5COneDrive%5Ccode%5Cesports-daily%5Cfrontend%5Cpages%5Csubmit.js ***!
-  \********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsubmit&absolutePagePath=%2Fhome%2Fjacobcolborn%2FDocuments%2Fesports-daily%2Ffrontend%2Fpages%2Fsubmit.js!./":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsubmit&absolutePagePath=%2Fhome%2Fjacobcolborn%2FDocuments%2Fesports-daily%2Ffrontend%2Fpages%2Fsubmit.js ***!
+  \****************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25124,7 +25124,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\jacob\\OneDrive\\code\\esports-daily\\frontend\\pages\\submit.js";
+var _jsxFileName = "/home/jacobcolborn/Documents/esports-daily/frontend/pages/submit.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
@@ -25161,13 +25161,13 @@ function (_Component) {
 /***/ }),
 
 /***/ 3:
-/*!************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fsubmit&absolutePagePath=C%3A%5CUsers%5Cjacob%5COneDrive%5Ccode%5Cesports-daily%5Cfrontend%5Cpages%5Csubmit.js ***!
-  \************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fsubmit&absolutePagePath=%2Fhome%2Fjacobcolborn%2FDocuments%2Fesports-daily%2Ffrontend%2Fpages%2Fsubmit.js ***!
+  \********************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fsubmit&absolutePagePath=C%3A%5CUsers%5Cjacob%5COneDrive%5Ccode%5Cesports-daily%5Cfrontend%5Cpages%5Csubmit.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsubmit&absolutePagePath=C%3A%5CUsers%5Cjacob%5COneDrive%5Ccode%5Cesports-daily%5Cfrontend%5Cpages%5Csubmit.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fsubmit&absolutePagePath=%2Fhome%2Fjacobcolborn%2FDocuments%2Fesports-daily%2Ffrontend%2Fpages%2Fsubmit.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsubmit&absolutePagePath=%2Fhome%2Fjacobcolborn%2FDocuments%2Fesports-daily%2Ffrontend%2Fpages%2Fsubmit.js!./");
 
 
 /***/ }),
